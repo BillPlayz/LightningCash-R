@@ -53,6 +53,7 @@ else
 fi
 AC_PROG_CXX
 AC_PROG_CC
+AC_PROG_CXX
 AC_PROG_CPP
 
 dnl By default, libtool for mingw refuses to link static libs into a dll for
