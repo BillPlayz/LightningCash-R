@@ -95,7 +95,7 @@ public:
         consensus.vDeployments[Consensus::DEPLOYMENT_TESTDUMMY].bit = 28;
         consensus.vDeployments[Consensus::DEPLOYMENT_TESTDUMMY].nStartTime = 1199145601; // January 1, 2008
         consensus.vDeployments[Consensus::DEPLOYMENT_TESTDUMMY].nTimeout = 1230767999; // December 31, 2008
-	
+
 
         // Deployment of BIP68, BIP112, and BIP113.
         consensus.vDeployments[Consensus::DEPLOYMENT_CSV].bit = 0;
@@ -170,7 +170,7 @@ public:
         consensus.beeLifespanBlocks2 = 48*24*21;
         consensus.beeLifespanBlocks3 = 48*24*21;
 	consensus.remvariableForkBlock = 5000000;
-        
+
         // The best chain should have at least this much work.
 
          consensus.nMinimumChainWork = uint256S("0x00000000000000000000000000000000000000000000000000003cc4b5f216a7");  // LightningCashr: block 1305391
@@ -192,7 +192,7 @@ public:
         nPruneAfterHeight = 100000;
 
         genesis = CreateGenesisBlock(1694548330, 1500284949, 0x1e0ffff0, 1, 1.25 * COIN * COIN_SCALE);			
-			
+
         consensus.hashGenesisBlock = genesis.GetHash();
         assert(consensus.hashGenesisBlock == uint256S("0x35f373b6fed4342ef20327917f756dc5fe76b4f2c111ac0a1c52ba408764709b"));
         assert(genesis.hashMerkleRoot == uint256S("0x4caf91337a748b3d946f7f145bc180da5c9281d6323113c0535d77b808526e5a"));
@@ -203,14 +203,14 @@ public:
         //vSeeds.emplace_back("seeds.lncr.com");
 
 
-        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,28);
-        base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,5);
-        base58Prefixes[SCRIPT_ADDRESS2] = std::vector<unsigned char>(1,50);
-        base58Prefixes[SECRET_KEY] = std::vector<unsigned char>(1,176);
+        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,29);
+        base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,6);
+        base58Prefixes[SCRIPT_ADDRESS2] = std::vector<unsigned char>(1,51);
+        base58Prefixes[SECRET_KEY] = std::vector<unsigned char>(1,177);
         base58Prefixes[EXT_PUBLIC_KEY] = {0x04, 0x88, 0xB2, 0x1E};
         base58Prefixes[EXT_SECRET_KEY] = {0x04, 0x88, 0xAD, 0xE4};
 
-        bech32_hrp = "lncr";
+        bech32_hrp = "lccc";
 
 	vFixedSeeds.clear();
         vFixedSeeds = std::vector<SeedSpec6>(pnSeed6_main, pnSeed6_main + ARRAYLEN(pnSeed6_main));
@@ -334,7 +334,7 @@ public:
 	consensus.remvariableForkBlock = 5000000; // never happens
 
         // The best chain should have at least this much work.
-        consensus.nMinimumChainWork = uint256S("0x0000000000000000000000000000000000000000000000000000000000000000");  // LightningCashr
+        consensus.nMinimumChainWork = uint256S("0x00");
 
         // By default assume that the signatures in ancestors of this block are valid.
         consensus.defaultAssumeValid = uint256S("0x35f373b6fed4342ef20327917f756dc5fe76b4f2c111ac0a1c52ba408764709b"); // LightningCashr: 0
@@ -347,7 +347,7 @@ public:
         nPruneAfterHeight = 1000;
 
         genesis = CreateGenesisBlock(1694548330, 1500284949, 0x1e0ffff0, 1, 1.25 * COIN * COIN_SCALE);		
-	
+
         consensus.hashGenesisBlock = genesis.GetHash();
         assert(consensus.hashGenesisBlock == uint256S("0x35f373b6fed4342ef20327917f756dc5fe76b4f2c111ac0a1c52ba408764709b"));
         assert(genesis.hashMerkleRoot == uint256S("0x4caf91337a748b3d946f7f145bc180da5c9281d6323113c0535d77b808526e5a"));
