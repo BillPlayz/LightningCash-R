@@ -77,17 +77,17 @@ class CMainParams : public CChainParams {
 public:
     CMainParams() {
         strNetworkID = "main";
-        consensus.nSubsidyHalvingInterval = 210000; // Bitcoin halving interval 
+        consensus.nSubsidyHalvingInterval = 210000; // Bitcoin-style halving interval for 21M total supply
         consensus.BIP16Height = 0;
         consensus.BIP34Height = 0;
         consensus.BIP34Hash = uint256S("fa09d204a83a768ed5a7c8d441fa62f2043abf420cff1226c7b4329aeb9d51cf");
         consensus.BIP65Height = 0;
         consensus.BIP66Height = 0;
-        consensus.powLimit = uint256S("00000000ffffffffffffffffffffffffffffffffffffffffffffffffffffffff"); // Bitcoin difficulty
-	consensus.powLimit2 = uint256S("00000000ffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
-        consensus.nPowTargetTimespan = 14 * 24 * 60 * 60; // Two weeks like Bitcoin
-        consensus.nPowTargetSpacing = 10 * 60; // 10 minutes like Bitcoin
-        consensus.nPowTargetSpacing2 = 10 * 60; // 10 minutes
+        consensus.powLimit = uint256S("00000fffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"); // Yespower difficulty target
+        consensus.powLimit2 = uint256S("00000fffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"); // Yespower difficulty target
+        consensus.nPowTargetTimespan = 14 * 24 * 60 * 60; // Two weeks
+        consensus.nPowTargetSpacing = 10 * 60; // 10 minutes per block
+        consensus.nPowTargetSpacing2 = 10 * 60; // 10 minutes per block
         consensus.fPowAllowMinDifficultyBlocks = false;
         consensus.fPowNoRetargeting = false;
         consensus.nRuleChangeActivationThreshold = 222; // 75% of 256
@@ -130,10 +130,12 @@ public:
 //        consensus.premineAmount =  550000;                   // Premine amount (1% of max supply)
 //        std::vector<unsigned char> vch = ParseHex("76a914c9f3305556963e2976ccf3348b89a6cc736b6a4e88ac");
 //        consensus.premineOutputScript = CScript(vch.begin(), vch.end());	// Output script for premine block (CLagBwF71hqPEKasbmugxBqmyWGFf6ZjMc)
-        consensus.totalMoneySupplyHeight = 6930000;         // ~21 million coins like Bitcoin
+        consensus.totalMoneySupplyHeight = 6930000;         // Height at which total 21M coins will be mined
+        consensus.nSubsidyHalvingInterval = 210000;        // Halving every 210,000 blocks like Bitcoin
+        consensus.initialSubsidy = 50 * COIN;              // Start with 50 coin reward like Bitcoin
 
-        // LightningCashr: Hive: Consensus Fields
-        consensus.minBeeCost = 10000;                       // Minimum cost of a bee, used when no more block rewards
+        // Using Yespower mining algorithm
+        consensus.powAlgorithm = ALGO_YESPOWER;            // Set mining algorithm to Yespower
         consensus.beeCostFactor = 2500;                     // Bee cost is block_reward/beeCostFactor
         consensus.beeCreationAddress = "CReateLitecoinCashWorkerBeeXYs19YQ";        // Unspendable address for bee creation
         consensus.hiveCommunityAddress = "CeckYLfkWnViDxKE1R5vLZaarygLrNgUwa";      // Community fund address
