@@ -77,17 +77,17 @@ class CMainParams : public CChainParams {
 public:
     CMainParams() {
         strNetworkID = "main";
-        consensus.nSubsidyHalvingInterval = 8400000;
-        consensus.BIP16Height = 0; // enforce BIP16 at start !
-        consensus.BIP34Height = 71000000; // never happens
+        consensus.nSubsidyHalvingInterval = 210000; // Bitcoin halving interval 
+        consensus.BIP16Height = 0;
+        consensus.BIP34Height = 0;
         consensus.BIP34Hash = uint256S("fa09d204a83a768ed5a7c8d441fa62f2043abf420cff1226c7b4329aeb9d51cf");
-        consensus.BIP65Height = 91868400; // never happens
-        consensus.BIP66Height = 81187900; // never happens
-        consensus.powLimit = uint256S("00000ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
-	consensus.powLimit2 = uint256S("0007fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
-        consensus.nPowTargetTimespan = 4440;
-        consensus.nPowTargetSpacing = 60; // target of 1 minute per block
-        consensus.nPowTargetSpacing2 = 20; // target of 10 seconds per block
+        consensus.BIP65Height = 0;
+        consensus.BIP66Height = 0;
+        consensus.powLimit = uint256S("00000000ffffffffffffffffffffffffffffffffffffffffffffffffffffffff"); // Bitcoin difficulty
+	consensus.powLimit2 = uint256S("00000000ffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
+        consensus.nPowTargetTimespan = 14 * 24 * 60 * 60; // Two weeks like Bitcoin
+        consensus.nPowTargetSpacing = 10 * 60; // 10 minutes like Bitcoin
+        consensus.nPowTargetSpacing2 = 10 * 60; // 10 minutes
         consensus.fPowAllowMinDifficultyBlocks = false;
         consensus.fPowNoRetargeting = false;
         consensus.nRuleChangeActivationThreshold = 222; // 75% of 256
@@ -130,7 +130,7 @@ public:
 //        consensus.premineAmount =  550000;                   // Premine amount (1% of max supply)
 //        std::vector<unsigned char> vch = ParseHex("76a914c9f3305556963e2976ccf3348b89a6cc736b6a4e88ac");
 //        consensus.premineOutputScript = CScript(vch.begin(), vch.end());	// Output script for premine block (CLagBwF71hqPEKasbmugxBqmyWGFf6ZjMc)
-        consensus.totalMoneySupplyHeight = 6215968;         // Height at which TMS is reached, do not issue rewards past this point... will have to be recalculated...
+        consensus.totalMoneySupplyHeight = 6930000;         // ~21 million coins like Bitcoin
 
         // LightningCashr: Hive: Consensus Fields
         consensus.minBeeCost = 10000;                       // Minimum cost of a bee, used when no more block rewards
