@@ -1,0 +1,4 @@
+modules = ["cpp-clang14", "python-3.12", "c-clang14"]
+
+[nix]
+channel = "stable-24_05"
