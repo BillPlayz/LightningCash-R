@@ -52,6 +52,8 @@ else
   CXXFLAGS_overridden=no
 fi
 AC_PROG_CXX
+AC_PROG_CC
+AC_PROG_CPP
 
 dnl By default, libtool for mingw refuses to link static libs into a dll for
 dnl fear of mixing pic/non-pic objects, and import/export complications. Since
