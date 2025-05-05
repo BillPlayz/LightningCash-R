@@ -6,6 +6,9 @@ define(_CLIENT_VERSION_REVISION, 0)
 define(_CLIENT_VERSION_BUILD, 0)
 define(_CLIENT_VERSION_IS_RELEASE, true)
 define(_COPYRIGHT_YEAR, 2024)
+
+dnl Initialize automake early to avoid AM_ macros error
+AM_INIT_AUTOMAKE([1.11 foreign subdir-objects])
 define(_COPYRIGHT_HOLDERS,[The %s developers])
 define(_COPYRIGHT_HOLDERS_SUBSTITUTION,[[Lightning Cash Community Core]])
 define(_COPYRIGHT_HOLDERS_SUBSTITUTION2,[[Lightning Cash Community Coin]])
@@ -53,6 +56,9 @@ else
 fi
 AC_PROG_CC
 AC_PROG_CXX
+AM_PROG_AR
+AC_PROG_RANLIB
+LT_INIT
 AX_CXX_COMPILE_STDCXX([11], [noext], [mandatory])
 AM_PROG_CC_C_O
 AC_PROG_CPP
