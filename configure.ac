@@ -51,10 +51,14 @@ if test "x${CXXFLAGS+set}" = "xset"; then
 else
   CXXFLAGS_overridden=no
 fi
-AC_PROG_CXX
 AC_PROG_CC
+AC_PROG_CXX
+AX_CXX_COMPILE_STDCXX([11], [noext], [mandatory])
 AM_PROG_CC_C_O
 AC_PROG_CPP
+
+dnl Initialize automake
+AM_INIT_AUTOMAKE([foreign subdir-objects])
 
 dnl By default, libtool for mingw refuses to link static libs into a dll for
 dnl fear of mixing pic/non-pic objects, and import/export complications. Since
